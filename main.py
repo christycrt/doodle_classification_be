@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, File
 from fastapi.middleware.cors import CORSMiddleware
 import tensorflow as tf
@@ -55,3 +56,6 @@ def predictDoodleClass(image):
         results.append({"accuracy":str(prediction), "predict_class":doodle_classes[i]})
         i += 1
     return {"accuracy": str(predict_class_percent), "predict_class":doodle_classes[predict_class]}, results
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
