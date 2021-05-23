@@ -10,9 +10,7 @@ import io
 app = FastAPI()
 
 origins = [
-    "http://localhost",
-    "13.76.137.229",
-    "0.0.0.0",
+    "*",
 ]
 app.add_middleware(
     CORSMiddleware,
