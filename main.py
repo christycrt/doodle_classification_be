@@ -10,8 +10,9 @@ import io
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
-    "http://13.76.137.229:3000"
+    "http://localhost",
+    "13.76.137.229",
+    "0.0.0.0",
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -59,4 +60,4 @@ def predictDoodleClass(image):
     return {"accuracy": str(predict_class_percent), "predict_class":doodle_classes[predict_class]}, results
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
